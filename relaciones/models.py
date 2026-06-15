@@ -12,7 +12,7 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
-    precio = models.IntegerField
+    precio = models.IntegerField()
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
     def __str__(self):
