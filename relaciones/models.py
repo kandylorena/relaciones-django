@@ -18,4 +18,22 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
     
+#Relacion muchos a muchos
+class Curso(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
+    
+
+class Estudiante(models.Model):
+    nombre = models.CharField(max_length=100)
+    cursos = models.ManyToManyField(Curso)
+
+    def __str__(self):
+        return self.nombre
+
+
+
+
 
