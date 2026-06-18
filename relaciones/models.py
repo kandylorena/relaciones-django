@@ -33,7 +33,18 @@ class Estudiante(models.Model):
     def __str__(self):
         return self.nombre
 
+# Relacion uno a uno.
 
+class Usuario(models.Model):
+    nombre = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.nombre
 
+#bio es biografia
+class Perfil(models.Model):
+    bio = models.TextField()
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"este es el perfil de: {self.usuario.nombre}"
